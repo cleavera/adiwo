@@ -1,0 +1,22 @@
+{
+  "name": "@adiwo/domain",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "lint": "tslint --project ./tsconfig.json",
+    "prepack": "npm run lint && npm run build"
+  },
+  "author": "Anthony Cleaver",
+  "license": "ISC",
+  "devDependencies": {
+    "@cleavera/config": "^1.1.0",
+    "@types/node": "^11.9.4",
+    "tslint": "^5.12.1",
+    "typescript": "^3.3.3333"
+  },
+  "dependencies": {
+    "@skimp/quickstart": "^1.6.0"
+  }
+}
