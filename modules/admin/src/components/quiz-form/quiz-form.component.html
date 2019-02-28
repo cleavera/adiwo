@@ -1,0 +1,12 @@
+<div>
+    <a [routerLink]="['/quizzes']">Back</a>
+</div>
+
+<form *ngIf="quiz" (submit)="onSubmit($event)">
+    <div>
+        <label>Name</label>
+        <input type="text" [value]="quiz.name || ''" (change)="onChangeName($event.currentTarget.value)" />
+    </div>
+
+    <button type="submit">Save</button>
+</form>

@@ -2,3 +2,4 @@
 node_modules
 modules/*/dist
 *.tgz
+/modules/data

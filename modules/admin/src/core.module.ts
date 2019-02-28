@@ -1,16 +1,22 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
 import { Api } from '@skimp/client';
 import { AppComponent } from './components/app/app.component';
+import { QuizFormComponent } from './components/quiz-form/quiz-form.component';
 import { QuizListComponent } from './components/quiz-list/quiz-list.component';
+import { CoreRoutingModule } from './core.routes';
 
 @NgModule({
     declarations: [
         AppComponent,
-        QuizListComponent
+        QuizListComponent,
+        QuizFormComponent
     ],
     imports: [
-        BrowserModule
+        BrowserModule,
+        RouterModule,
+        CoreRoutingModule
     ],
     providers: [
         {
