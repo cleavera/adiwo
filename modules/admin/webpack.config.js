@@ -12,6 +12,10 @@ module.exports = {
         filename: 'index.js'
     },
 
+    mode: 'development',
+
+    devtool: 'source-map',
+
     module: {
         rules: [
             {
