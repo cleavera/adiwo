@@ -1,1 +1,7 @@
 <a [routerLink]="['/quizzes', 'manage', 'new']">New</a>
+
+<ul>
+    <li *ngFor="let quiz of quizzes | async">
+        <admin-quiz [quiz]="quiz"></admin-quiz>
+    </li>
+</ul>
