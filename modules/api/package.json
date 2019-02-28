@@ -1,10 +1,11 @@
 {
-  "name": "@adiwo/domain",
+  "name": "@adiwo/api",
   "version": "1.0.0",
   "description": "",
-  "main": "./dist/index.js",
+  "main": "index.js",
   "scripts": {
     "build": "tsc",
+    "dev": "ts-node ./src/index",
     "lint": "tslint --project ./tsconfig.json",
     "prepack": "npm run lint && npm run build"
   },
@@ -12,16 +13,13 @@
   "license": "ISC",
   "devDependencies": {
     "@cleavera/config": "^1.1.0",
-    "@types/node": "^11.9.4",
-    "tslint": "^5.12.1",
+    "@types/node": "^11.9.5",
+    "ts-node": "^8.0.2",
+    "tslint": "^5.13.0",
     "typescript": "^3.3.3333"
   },
   "dependencies": {
-    "@skimp/core": "^2.2.0",
-    "@skimp/debug": "^1.3.0",
-    "@skimp/file-system": "^1.4.1",
-    "@skimp/http": "^1.3.0",
-    "@skimp/schema": "^2.4.0",
-    "@skimp/validation": "^2.1.0"
+    "@adiwo/domain": "file:adiwo-domain-1.0.0.tgz",
+    "@skimp/quickstart": "^1.6.0"
   }
 }
