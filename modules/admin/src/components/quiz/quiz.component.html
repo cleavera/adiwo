@@ -2,4 +2,10 @@
     <p [innerText]="quiz.name"></p>
 
     <a [routerLink]="['/quizzes', 'manage', id()]">Edit</a>
+
+    <ul>
+        <li>
+            <a [routerLink]="['/quizzes', 'manage', id(), 'question', 'new']">Add question</a>
+        </li>
+    </ul>
 </div>

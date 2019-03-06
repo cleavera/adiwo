@@ -1,5 +1,6 @@
 import { ModuleWithProviders } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { QuestionFormComponent } from './components/question-form/question-form.component';
 import { QuizFormComponent } from './components/quiz-form/quiz-form.component';
 import { QuizListComponent } from './components/quiz-list/quiz-list.component';
 
@@ -14,7 +15,16 @@ const ROUTES: Routes = [
         children: [
             {
                 path: 'manage/:quizId',
-                component: QuizFormComponent
+                children: [
+                    {
+                        path: 'question/:questionId',
+                        component: QuestionFormComponent
+                    },
+                    {
+                        path: '',
+                        component: QuizFormComponent
+                    }
+                ]
             },
             {
                 path: '',
