@@ -37,6 +37,20 @@ export class QuestionFormComponent {
         });
     }
 
+    public async onRemove(): Promise<void> {
+        if ($isNull(this.question)) {
+            throw new Error('No question');
+        }
+
+        const location: Maybe<ResourceLocation> = Model.getLocation(this.question);
+
+        if ($isNull(location)) {
+            throw new Error('No question');
+        }
+
+        await this._api.remove(location);
+    }
+
     public async onSubmit(e: Event): Promise<void> {
         e.preventDefault();
 

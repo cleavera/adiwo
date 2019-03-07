@@ -8,5 +8,6 @@
         <input type="text" [value]="question.description || ''" (change)="onChangeDescription($event.currentTarget.value)" />
     </div>
 
+    <button (click)="onRemove()" type="button">Remove</button>
     <button type="submit">Save</button>
 </form>

@@ -2,7 +2,7 @@ import { QuizSchema } from '@adiwo/domain';
 import { Component, Inject } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { $isNull, Maybe } from '@cleavera/utils';
-import { Api } from '@skimp/client';
+import { Api, Model } from '@skimp/client';
 import { ResourceLocation } from '@skimp/core';
 import { Uri } from '@skimp/http';
 
@@ -25,6 +25,20 @@ export class QuizFormComponent {
                 this.quiz = await this._api.get(QuizSchema, ResourceLocation.fromUrl(new Uri(map.get('quizId') as string)));
             }
         });
+    }
+
+    public async onRemove(): Promise<void> {
+        if ($isNull(this.quiz)) {
+            throw new Error('No quiz');
+        }
+
+        const location: Maybe<ResourceLocation> = Model.getLocation(this.quiz);
+
+        if ($isNull(location)) {
+            throw new Error('No quiz');
+        }
+
+        await this._api.remove(location);
     }
 
     public async onSubmit(e: Event): Promise<void> {
