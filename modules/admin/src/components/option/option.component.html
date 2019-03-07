@@ -1,3 +1,5 @@
 <div>
     <p [innerText]="option.description"></p>
+
+    <a [routerLink]="['/quizzes', 'manage', quiz | id, 'question', question | id, 'option', option | id]">Edit</a>
 </div>
