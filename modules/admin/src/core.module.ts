@@ -4,14 +4,18 @@ import { RouterModule } from '@angular/router';
 import { Api } from '@skimp/client';
 import { AppComponent } from './components/app/app.component';
 import { QuestionFormComponent } from './components/question-form/question-form.component';
+import { QuestionComponent } from './components/question/question.component';
 import { QuizFormComponent } from './components/quiz-form/quiz-form.component';
 import { QuizListComponent } from './components/quiz-list/quiz-list.component';
 import { QuizComponent } from './components/quiz/quiz.component';
 import { CoreRoutingModule } from './core.routes';
+import { IdPipe } from './pipes/id.pipe';
 
 @NgModule({
     declarations: [
         AppComponent,
+        IdPipe,
+        QuestionComponent,
         QuestionFormComponent,
         QuizComponent,
         QuizListComponent,

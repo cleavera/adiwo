@@ -1,4 +1,4 @@
-import { QuizSchema } from '@adiwo/domain';
+import { QuestionSchema, QuizSchema } from '@adiwo/domain';
 import { Component, Inject, Input } from '@angular/core';
 import { $isNull, Maybe } from '@cleavera/utils';
 import { Api, Model } from '@skimp/client';
@@ -12,26 +12,28 @@ import { ResourceLocation } from '@skimp/core';
 export class QuizComponent {
     @Input()
     public quiz: Maybe<QuizSchema> = null;
+    public questions: Maybe<Array<QuestionSchema>> = null;
+
+    @Input('quiz')
+    public set _quiz(quiz: Maybe<QuizSchema>) {
+        this.quiz = quiz;
+
+        const questionLocations: Maybe<Array<ResourceLocation>> = Model.getRelationshipOfType(quiz, QuestionSchema);
+
+        if (!$isNull(questionLocations)) {
+            (async(): Promise<void> => {
+                this.questions = await Promise.all(questionLocations.map((questionLocation: ResourceLocation) => {
+                    return this._api.get(QuestionSchema, questionLocation);
+                }));
+
+                console.log(this.questions);
+            })();
+        }
+    }
 
     private readonly _api: Api;
 
     constructor(@Inject(Api) api: Api) {
         this._api = api;
-
-        this._api;
-    }
-
-    public id(): string {
-        if (!this.quiz) {
-            throw new Error('No quiz');
-        }
-
-        const location: Maybe<ResourceLocation> = Model.getLocation(this.quiz);
-
-        if ($isNull(location)) {
-            throw new Error('Quiz does not exist');
-        }
-
-        return location.toString();
     }
 }

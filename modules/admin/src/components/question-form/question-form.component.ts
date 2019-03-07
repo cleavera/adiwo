@@ -1,5 +1,4 @@
-import { QuestionSchema } from '@adiwo/domain';
-import { QuizSchema } from '@adiwo/domain/dist';
+import { QuestionSchema, QuizSchema } from '@adiwo/domain';
 import { Component, Inject } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { $isNull, Maybe } from '@cleavera/utils';

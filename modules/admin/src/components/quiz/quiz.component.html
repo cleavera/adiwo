@@ -1,11 +1,13 @@
 <div>
     <p [innerText]="quiz.name"></p>
 
-    <a [routerLink]="['/quizzes', 'manage', id()]">Edit</a>
+    <a [routerLink]="['/quizzes', 'manage', quiz | id]">Edit</a>
 
     <ul>
-        <li>
-            <a [routerLink]="['/quizzes', 'manage', id(), 'question', 'new']">Add question</a>
+        <li *ngFor="let question of questions">
+            <admin-question [quiz]="quiz" [question]="question"></admin-question>
         </li>
     </ul>
+
+    <a [routerLink]="['/quizzes', 'manage', quiz | id, 'question', 'new']">Add question</a>
 </div>
