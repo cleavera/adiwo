@@ -1,5 +1,6 @@
 import { ModuleWithProviders } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { OptionFormComponent } from './components/option-form/option-form.component';
 import { QuestionFormComponent } from './components/question-form/question-form.component';
 import { QuizFormComponent } from './components/quiz-form/quiz-form.component';
 import { QuizListComponent } from './components/quiz-list/quiz-list.component';
@@ -18,7 +19,16 @@ const ROUTES: Routes = [
                 children: [
                     {
                         path: 'question/:questionId',
-                        component: QuestionFormComponent
+                        children: [
+                            {
+                                path: 'option/:optionId',
+                                component: OptionFormComponent
+                            },
+                            {
+                                path: '',
+                                component: QuestionFormComponent
+                            }
+                        ]
                     },
                     {
                         path: '',
