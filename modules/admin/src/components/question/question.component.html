@@ -3,5 +3,11 @@
 
     <a [routerLink]="['/quizzes', 'manage', quiz | id, 'question', question | id]">Edit</a>
 
+    <ul>
+        <li *ngFor="let option of options">
+            <admin-option [quiz]="quiz" [question]="question" [option]="option"></admin-option>
+        </li>
+    </ul>
+
     <a [routerLink]="['/quizzes', 'manage', quiz | id, 'question', question | id, 'option', 'new']">Add option</a>
 </div>

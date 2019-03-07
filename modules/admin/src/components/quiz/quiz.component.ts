@@ -10,7 +10,6 @@ import { ResourceLocation } from '@skimp/core';
     styleUrls: ['./quiz.component.scss']
 })
 export class QuizComponent {
-    @Input()
     public quiz: Maybe<QuizSchema> = null;
     public questions: Maybe<Array<QuestionSchema>> = null;
 
@@ -25,8 +24,6 @@ export class QuizComponent {
                 this.questions = await Promise.all(questionLocations.map((questionLocation: ResourceLocation) => {
                     return this._api.get(QuestionSchema, questionLocation);
                 }));
-
-                console.log(this.questions);
             })();
         }
     }

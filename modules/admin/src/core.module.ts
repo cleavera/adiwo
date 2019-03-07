@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { Api } from '@skimp/client';
 import { AppComponent } from './components/app/app.component';
 import { OptionFormComponent } from './components/option-form/option-form.component';
+import { OptionComponent } from './components/option/option.component';
 import { QuestionFormComponent } from './components/question-form/question-form.component';
 import { QuestionComponent } from './components/question/question.component';
 import { QuizFormComponent } from './components/quiz-form/quiz-form.component';
@@ -16,6 +17,7 @@ import { IdPipe } from './pipes/id.pipe';
     declarations: [
         AppComponent,
         IdPipe,
+        OptionComponent,
         OptionFormComponent,
         QuestionComponent,
         QuestionFormComponent,
