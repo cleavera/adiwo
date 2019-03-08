@@ -1,7 +1,7 @@
 import { Pipe } from '@angular/core';
+import { $isNull, Maybe } from '@cleavera/utils';
 import { Model } from '@skimp/client';
 import { ResourceLocation } from '@skimp/core';
-import { $isNull, Maybe } from '@cleavera/utils';
 
 @Pipe({ name: 'id' })
 export class IdPipe {
