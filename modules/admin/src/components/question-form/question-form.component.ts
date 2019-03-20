@@ -3,7 +3,7 @@ import { Component, Inject } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { $isNull, Maybe } from '@cleavera/utils';
 import { Api, Model } from '@skimp/client';
-import { MODEL_REGISTER, ResourceLocation } from '@skimp/core';
+import { ResourceLocation } from '@skimp/core';
 import { Uri } from '@skimp/http';
 
 @Component({
@@ -22,15 +22,9 @@ export class QuestionFormComponent {
         activatedRoute.paramMap.subscribe(async(map: ParamMap) => {
             this.quiz = await this._api.get(QuizSchema, ResourceLocation.fromUrl(new Uri(map.get('quizId') as string)));
 
-            const location: Maybe<ResourceLocation> = Model.getLocation(this.quiz);
-
-            if ($isNull(location)) {
-                throw new Error('No location for quiz');
-            }
-
             if (map.get('questionId') === 'new') {
                 this.question = new QuestionSchema();
-                MODEL_REGISTER.addRelationship(this.question, location);
+                Model.addRelationship(this.question, this.quiz);
             } else {
                 this.question = await this._api.get(QuestionSchema, ResourceLocation.fromUrl(new Uri(map.get('questionId') as string)));
             }
