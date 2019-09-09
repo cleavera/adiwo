@@ -1,4 +1,4 @@
-<div>
+<div *ngIf="quiz">
     <p [innerText]="quiz.name"></p>
 
     <a [routerLink]="['/quizzes', 'manage', quiz | id]">Edit</a>

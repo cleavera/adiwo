@@ -12,7 +12,9 @@
   "author": "Anthony Cleaver",
   "license": "ISC",
   "devDependencies": {
+    "@angular/compiler-cli": "^7.2.10",
     "@cleavera/config": "^1.1.0",
+    "@ngtools/webpack": "^7.3.6",
     "@types/node": "^11.9.5",
     "angular2-template-loader": "^0.6.2",
     "html-webpack-plugin": "^3.2.0",
@@ -21,7 +23,7 @@
     "sass-loader": "^7.1.0",
     "ts-loader": "^5.3.3",
     "tslint": "^5.13.0",
-    "typescript": "^3.3.3333",
+    "typescript": "^3.2.4",
     "webpack": "^4.29.5",
     "webpack-cli": "^3.2.3",
     "webpack-dev-server": "^3.2.1"
@@ -34,7 +36,7 @@
     "@angular/platform-browser": "^7.2.6",
     "@angular/platform-browser-dynamic": "^7.2.6",
     "@angular/router": "^7.2.7",
-    "@skimp/client": "^1.1.0",
+    "@skimp/client": "^1.2.0",
     "@skimp/core": "^2.2.0",
     "@skimp/debug": "^1.3.0",
     "@skimp/http": "^1.3.0",

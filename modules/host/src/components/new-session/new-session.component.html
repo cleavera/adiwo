@@ -1,0 +1,15 @@
+<div>
+    <a [routerLink]="['/sessions']">Back</a>
+</div>
+
+<form (submit)="onSubmit($event)">
+    <div>
+        <label>Select the quiz to run</label>
+        <select [value]="selectedQuiz" (change)="onChangeQuiz($event.currentTarget.value)">
+            <option></option>
+            <option *ngFor="let quiz of quizzes | async" [innerText]="quiz.name" [value]="quiz | id"></option>
+        </select>
+    </div>
+
+    <button type="submit">Save</button>
+</form>

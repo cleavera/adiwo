@@ -1,8 +1,8 @@
-<div>
+<div *ngIf="question">
     <p [innerText]="question.description"></p>
 
     <a [routerLink]="['/quizzes', 'manage', quiz | id, 'question', question | id]">Edit</a>
-
+hello world
     <ul>
         <li *ngFor="let option of options">
             <admin-option [quiz]="quiz" [question]="question" [option]="option"></admin-option>

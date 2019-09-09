@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ngTools = require('@ngtools/webpack');
 
 module.exports = {
     entry: {
@@ -25,11 +26,15 @@ module.exports = {
             {
                 test: /\.ts$/,
                 use: [
+                    '@ngtools/webpack',
                     'ts-loader',
-                    'angular2-template-loader'
+                    // 'angular2-template-loader'
                 ]
-
             },
+            // {
+            //     test: /(?:\.ngfactory\.js|\.ngstyle\.js)$/,
+            //     loader: '@ngtools/webpack'
+            // },
             {
                 test: /\.html$/,
                 use: 'raw-loader'
@@ -52,6 +57,11 @@ module.exports = {
     },
 
     plugins: [
+        new ngTools.AngularCompilerPlugin({
+            tsConfigPath: './tsconfig.json',
+            entryModule: './src/core.module#CoreModule',
+            sourceMap: false
+        }),
         new HtmlWebpackPlugin({
             template: './src/index.html',
             inject: 'body'
