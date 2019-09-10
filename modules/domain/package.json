@@ -11,10 +11,10 @@
   "author": "Anthony Cleaver",
   "license": "ISC",
   "devDependencies": {
-    "@cleavera/config": "^1.1.0",
+    "@cleavera/config": "^1.2.0",
     "@types/node": "^11.9.4",
-    "tslint": "^5.12.1",
-    "typescript": "^3.3.3333"
+    "tslint": "^5.20.0",
+    "typescript": "^3.6.2"
   },
   "dependencies": {
     "@skimp/core": "^2.2.0",
