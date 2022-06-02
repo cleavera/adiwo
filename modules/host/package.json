@@ -30,7 +30,7 @@
     "@adiwo/domain": "file:adiwo-domain-1.0.0.tgz",
     "@angular/common": "^7.2.8",
     "@angular/compiler": "^7.2.8",
-    "@angular/core": "^7.2.8",
+    "@angular/core": "^11.0.5",
     "@angular/platform-browser": "^7.2.8",
     "@angular/platform-browser-dynamic": "^7.2.8",
     "@angular/router": "^7.2.8",
